@@ -241,13 +241,3 @@ Runs the 9:00 AM job for all users with an active sleep goal:
     "errors": []
   }
   ```
-
----
-
-You can now:
-
-1. Create `docs/API_ENDPOINTS.md` in your repo.  
-2. Paste this content.  
-3. Adjust any names/fields you decide to change later.
-
-Next step after this: scaffold the FastAPI project (folder structure + a minimal `/health` or `/api/auth/me` endpoint) and we can walk through that as well.
