@@ -1,10 +1,9 @@
-# app/api/schemas.py
 from datetime import time, date
 from pydantic import BaseModel
 
 
 class SleepGoalCreate(BaseModel):
-    target_bedtime: time  # expects "HH:MM[:SS]" from JSON
+    target_bedtime: time
 
 
 class SleepGoalRead(BaseModel):
@@ -17,4 +16,17 @@ class SleepGoalRead(BaseModel):
     status: str
 
     class Config:
-        from_attributes = True  # tells Pydantic to read from ORM objects
+        from_attributes = True
+
+
+class DailyScheduleRead(BaseModel):
+    id: str
+    sleep_goal_id: str
+    went_to_bed_date: date
+    scheduled_bedtime: time
+    actual_bedtime: time | None
+    minutes_slept: int | None
+    success: bool | None
+
+    class Config:
+        from_attributes = True

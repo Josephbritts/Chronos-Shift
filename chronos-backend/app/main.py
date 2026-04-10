@@ -1,16 +1,14 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
+from fastapi import FastAPI
 
 from app.db.session import engine, Base
-from app.db.deps import get_db
-from app.db.models import User
-from app.api import sleep_goals
+from app.api import sleep_goals, daily_schedules
 
 app = FastAPI(title="Chronos Backend")
 
 Base.metadata.create_all(bind=engine)
 
 app.include_router(sleep_goals.router)
+app.include_router(daily_schedules.router)
 
 
 @app.get("/")
